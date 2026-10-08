@@ -21,10 +21,10 @@ Regole fisse: ogni operazione ripetuta = UNO script Python (vedi REGOLA RISPARMI
 
 ## Questo progetto (alfoliotemplate1)
 
-- **Repo GitHub:** `cialdecompatibili-netizen/box-ecommerce` (sito di test, clonato da `alfoliotemplate1` con `nuovo_sito.py`).
-- **Sito live:** https://cialdecompatibili-netizen.github.io/box-ecommerce/ (Pages, Source: branch `gh-pages`, build legacy). Baseurl automatico da `deploy.yml`.
-- **Cartella locale:** `C:\Users\mirco\Desktop\box-ecommerce`.
-- **Origine:** copia di `alfoliotemplate1` (commit b912cd5, 07/10/2026); la storia riparte da un commit.
+- **Repo GitHub:** `cialdecompatibili-netizen/box-ecommerce2` (sito di test, clone completo di `box-ecommerce`: NON toccare `box-ecommerce`, i test vanno qui).
+- **Sito live:** https://cialdecompatibili-netizen.github.io/box-ecommerce2/ (Pages, Source: branch `gh-pages`, build legacy). Baseurl automatico da `deploy.yml`.
+- **Cartella locale:** `C:\Users\mirco\Desktop\box-ecommerce2`.
+- **Origine:** `git clone` di `box-ecommerce` (08/10/2026, ultimo commit 64e5d68) con la storia completa, poi `origin` spostato su `box-ecommerce2`. `box-ecommerce` a sua volta era copia di `alfoliotemplate1` (commit b912cd5, 07/10/2026).
 - **Performance:** `_plugins/performance.rb` (librerie inutilizzate tolte pagina per pagina, Font Awesome lite e Roboto in locale, script del tema in `assets/cdn-locale/`, CSS pygments non bloccante senza codice, ricerca caricata alla prima interazione). Si spegne con `performance: { enabled: false }` o solo la ricerca con `performance: { lazy_search: false }` in `_config.yml`. PageSpeed mobile 100 misurato il 06/10/2026 prima della ricerca lazy: da rimisurare.
 - **Allineamento:** `powershell -File C:\Users\mirco\Desktop\clona_test.ps1` (fetch di crazyweb4, copia, baseurl, commit, push). Esclude `.git`, `node_modules`, `_site`, `.jekyll-cache`, `automazioni/` (contiene `.env`) e i file guida `CLAUDE.md`/`AGENTS.md`.
 - **NUOVO SITO DA QUESTO (procedura provata il 04/10/2026 con italfuni):** 1) repo vuota su GitHub (pubblica, senza README); 2) `robocopy <questa cartella> <nuova> /E /XD .git _site node_modules .jekyll-cache`; 3) nella nuova: `git init -b main`, commit, `remote add origin`, push; 4) quando il primo 'Deploy site' e' riuscito (crea `gh-pages`) abilitare Pages: `gh api -X POST repos/<owner>/<repo>/pages -f "source[branch]=gh-pages" -f "source[path]=/"`; 5) verificare l'HTML online: percorsi `/<nome-repo>/assets/...` e nessun nome del sito di partenza. NON toccare `url`/`baseurl` di `_config.yml` ne' `repos.json` (automatici). Se esiste `automazioni/.env`, nel clone togliere `GITHUB_OWNER`/`GITHUB_REPO`. Poi riscrivere il blocco 'Questo progetto' con nome, repo e URL del nuovo sito. Siti nati cosi': italfuni, edilextreme2.
