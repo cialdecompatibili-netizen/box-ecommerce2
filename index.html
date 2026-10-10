@@ -59,36 +59,40 @@ html[data-theme=dark] .rete-box .marte{opacity:.66;box-shadow:0 0 34px 10px rgba
 /* ===== MARTE END (css) ===== */
 
 /* ===== SERVIZI HOME (nuova sezione, sotto il box costellazione) =====
-   Semplice griglia di 6 card che riprendono i PRIMI 6 servizi di _pages/servizi.md,
-   con link "Vedi tutti i servizi" verso /servizi/. Nessun altro blocco esistente toccato.
+   Griglia di card che riprendono i servizi con la casetta, con link "Vedi tutti i servizi" verso /servizi/.
+   CARD BIANCHE (stesso stile delle card "Perche' su fune" di Italfuni, ma SENZA icona): fondo bianco FISSO anche in tema scuro, testo scuro fisso, bordo sottile,
+   angoli 22px, ombra morbida a due strati, leggero sollevamento all'hover. Stesso identico stile in /servizi/ (.srv-t td) e /projects/ (.projects .card): se lo ritocchi, ritoccali tutti e tre.
    Per aggiungere/rimuovere una card: duplica/elimina un .srv-home-card qui sotto e nell'HTML. */
 .srv-home{margin:2.5rem 0}
 .srv-home h2{text-align:center;margin-bottom:1.4rem}
-.srv-home-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:900px;margin:0 auto}
-.srv-home-card{display:block;color:inherit;text-decoration:none;padding:16px 18px;border:1px solid rgba(0,0,0,.12);border-radius:12px;background:#fffdf5;text-align:left}
-.srv-home-card b{display:block;margin-bottom:4px}
-.srv-home-card small{opacity:.65;display:block}
-html[data-theme="dark"] .srv-home-card{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.15)}
+.srv-home-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:900px;margin:0 auto;align-items:stretch}
+.srv-home-card{display:flex;flex-direction:column;justify-content:center;color:#1f2933;text-decoration:none;padding:18px 22px;min-height:112px;background:#fff;border:1px solid #e6e8ec;border-radius:22px;box-shadow:0 1px 2px rgba(16,24,40,.04),0 8px 24px -12px rgba(16,24,40,.12);text-align:left;transition:transform .25s ease,box-shadow .25s ease}
+.srv-home-card:hover{transform:translateY(-3px);box-shadow:0 2px 4px rgba(16,24,40,.05),0 16px 32px -14px rgba(16,24,40,.2)}
+.srv-home-card b{display:block;margin-bottom:4px;color:#111827}
+.srv-home-card small{display:block;color:#3a4552;font-size:.94rem;line-height:1.5;text-wrap:pretty}
 .srv-home-more{text-align:center;margin-top:1.6rem}
 .srv-home-more a{display:inline-block;padding:.55rem 1.4rem;border-radius:999px;border:1px solid rgba(0,0,0,.2);text-decoration:none;font-weight:600}
 html[data-theme="dark"] .srv-home-more a{border-color:rgba(255,255,255,.3)}
-@media (max-width:700px){.srv-home-grid{grid-template-columns:1fr}}
+@media (max-width:900px){.srv-home-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.srv-home-grid{grid-template-columns:1fr}.srv-home-card{min-height:0}}
+@media (prefers-reduced-motion:reduce){.srv-home-card,.prj-home-card{transition:none}.srv-home-card:hover,.prj-home-card:hover{transform:none}}
 
 /* ===== PROGETTI HOME (sotto i servizi) =====
-   Stesso aspetto della griglia servizi, classi separate (prj-home*) di proposito: gli script che riallineano le card
+   Stesso aspetto delle card dei servizi (bianche, senza icone), classi separate (prj-home*) di proposito: gli script che riallineano le card
    dei servizi (pubblica_servizi.py) lavorano su .srv-home-card e non devono mai toccare queste.
    Le card NON sono scritte a mano: le genera il ciclo Liquid nell'HTML qui sotto dai file di _projects/. */
 .prj-home{margin:2.5rem 0}
 .prj-home h2{text-align:center;margin-bottom:1.4rem}
-.prj-home-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:900px;margin:0 auto}
-.prj-home-card{display:block;color:inherit;text-decoration:none;padding:16px 18px;border:1px solid rgba(0,0,0,.12);border-radius:12px;background:#fffdf5;text-align:left}
-.prj-home-card b{display:block;margin-bottom:4px}
-.prj-home-card small{opacity:.65;display:block}
-html[data-theme="dark"] .prj-home-card{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.15)}
+.prj-home-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:900px;margin:0 auto;align-items:stretch}
+.prj-home-card{display:flex;flex-direction:column;justify-content:center;color:#1f2933;text-decoration:none;padding:18px 22px;min-height:112px;background:#fff;border:1px solid #e6e8ec;border-radius:22px;box-shadow:0 1px 2px rgba(16,24,40,.04),0 8px 24px -12px rgba(16,24,40,.12);text-align:left;transition:transform .25s ease,box-shadow .25s ease}
+.prj-home-card:hover{transform:translateY(-3px);box-shadow:0 2px 4px rgba(16,24,40,.05),0 16px 32px -14px rgba(16,24,40,.2)}
+.prj-home-card b{display:block;margin-bottom:4px;color:#111827}
+.prj-home-card small{display:block;color:#3a4552;font-size:.94rem;line-height:1.5;text-wrap:pretty}
 .prj-home-more{text-align:center;margin-top:1.6rem}
 .prj-home-more a{display:inline-block;padding:.55rem 1.4rem;border-radius:999px;border:1px solid rgba(0,0,0,.2);text-decoration:none;font-weight:600}
 html[data-theme="dark"] .prj-home-more a{border-color:rgba(255,255,255,.3)}
-@media (max-width:700px){.prj-home-grid{grid-template-columns:1fr}}
+@media (max-width:900px){.prj-home-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.prj-home-grid{grid-template-columns:1fr}.prj-home-card{min-height:0}}
 </style> <div class="rete-box" id="rete-box"> <div class="marte-orbita" aria-hidden="true"><div class="marte-y"><canvas class="marte" width="208" height="208" aria-hidden="true"></canvas></div></div> <canvas id="rete-cv" aria-hidden="true"></canvas> <h2 id="box-ricorrenti-scelte-per-te-e-consegnate-a-casa">Box ricorrenti, scelte per te e consegnate a casa.</h2> <p>Scegli la tua box, decidi ogni quanto riceverla e lascia il resto a noi. Prodotti selezionati, spedizione in tutta Italia, pausa o disdetta quando vuoi.</p> <p>Puoi scegliere una box a sorpresa per scoprire cose nuove, oppure una box di ricarica con i prodotti che usi sempre. Per un regalo o per l’ufficio c’è l’abbonamento su misura.</p> <p><strong>Vuoi provare una box?</strong> Scrivici e ti consigliamo quella giusta per te, per un regalo o per il tuo team.</p> </div> <div class="srv-home"> <h2>I nostri servizi</h2> <div class="srv-home-grid"> <a class="srv-home-card" href="/box-ecommerce2/servizi/abbonamento-regalo/"><b>Abbonamento regalo</b><small>Regala 3, 6 o 12 mesi di box...</small></a><a class="srv-home-card" href="/box-ecommerce2/servizi/box-caff-e-t/"><b>Box Caffè e Tè</b><small>Caffè e tè che finiscono sempre, a casa...</small></a><a class="srv-home-card" href="/box-ecommerce2/servizi/box-casa-eco/"><b>Box Casa Eco</b><small>Detersivi e prodotti per la casa a ricarica,...</small></a><a class="srv-home-card" href="/box-ecommerce2/servizi/box-dispensa-italiana/"><b>Box Dispensa Italiana</b><small>Ogni mese prodotti artigianali italiani scelti da noi....</small></a> </div> <div class="srv-home-more"> <a href="/box-ecommerce2/servizi/">Vedi tutti i servizi</a> </div> </div> <div class="prj-home"> <h2>I nostri progetti</h2> <div class="prj-home-grid"> <a class="prj-home-card" href="/box-ecommerce2/projects/box-del-mese/"><b>Box del mese</b><small>Ogni mese una selezione nuova con un tema diverso.</small></a><a class="prj-home-card" href="/box-ecommerce2/projects/box-regalo-di-stagione/"><b>Box regalo di stagione</b><small>Edizioni limitate per le feste, da regalare o da tenere.</small></a> </div> <div class="prj-home-more"> <a href="/box-ecommerce2/projects/">Vedi tutti i progetti</a> </div> </div> <script>
 /* ===== MARTE START (js) =====
    COME FUNZIONA (3 pezzi indipendenti):
